@@ -18,7 +18,7 @@ Near the top of the calendar, the application displays the current day. Addition
 
     You can check the running project:
     
-    https://aysenunlu.github.io/Code-Quiz/
+   ![Running Project](https://aysenunlu.github.io/Daily-Planner/)
 
 ## Usage: ##
 
