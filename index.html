@@ -148,7 +148,9 @@
        }
     /*****************************************************************************/
        function init(){
-         console.log("in init");
+
+         $("#currentDay").text(moment().format('dddd,MMMM Do'));     
+             
          eventList=JSON.parse(localStorage.getItem("schedule"));//get schedule object from the local storage and parse it
          //if there are events in local storage, go through each event and update the text areas with DOM manipulation
          console.log(eventList);
@@ -164,7 +166,6 @@
        //updates the page, makes it color coded. Grey-->past, Red-->present and Green-->future
 
        function update(){
-         console.log("in update");
           var hour= moment().format("hh a"); //get the hour of current time
           var minute=moment().minutes();
           console.log(hour+","+minute);
@@ -193,7 +194,6 @@
        /**************************************************************************/
        //This function stores the events in the local storage, fired up when button is clicked
         function storeLocal(event){
-                  console.log("in storeLocal");
                   event.preventDefault(); //client side application, nothing will be submitted to server
 
                   var events={ //events object
@@ -272,7 +272,7 @@
     // $(document).ready(function(){
        //Update the current date on the header
 
-       $("#currentDay").text(moment().format('dddd,MMMM Do'));         
+      // $("#currentDay").text(moment().format('dddd,MMMM Do'));         
 
            
         $(window).on('load',init); //when the window is loaded "init" function is fired up
