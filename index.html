@@ -153,6 +153,7 @@
        function init(){
          eventList=JSON.parse(localStorage.getItem("schedule"));//get schedule object from the local storage and parse it
          //if there are events in local storage, go through each event and update the text areas with DOM manipulation
+         console.log(eventList);
          if (eventList!=null){
               for(var i=0;i<eventList.length;i++){
                     find(eventList[i]); //show the events on the page
@@ -170,6 +171,11 @@
           console.log(hour+","+minute);
           $.each($(".hour"),function(key,h){
               var value=$(h).text();
+              console.log(moment(value,"hh a").isSame(moment(hour,"hh a")));
+              console.log(moment(hour,"hh a").isAfter(moment(value,"hh a")));
+              console.log(moment(hour,"hh a").isBefore(moment(value,"hh a")));
+             
+
               if(moment(value,"hh a").isSame(moment(hour,"hh a"))){ //(ex. 11 am) If current hour matches
 
                 $("#tArea"+key).css("background-color","red"); //make the text area red
