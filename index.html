@@ -202,7 +202,8 @@
                           time :"",  
                           date:"",
                           eventDesc:"",
-                        };  
+                        }; 
+                  /**********************************************************************/       
                   //inner function, if an event will be updated on the same date and time, this function is called
                   function isPresent(){
                           console.log("in ispresent");
@@ -233,6 +234,7 @@
                              return 1;//this will indicate events in the storage belong to another date and or time
                         }     
                   }
+                  /************************************************************************/
 
                   var el=$(this).attr("id");//get the buttons id, if it's 0-->matches to the time 9 am, if it's  1-->matches to the time 10 am etc.
             
@@ -243,44 +245,31 @@
                   }
                   id=parseInt(id);
                     //populate the events object  with the fields corresponding to the button pressed
-                    events.eventDesc=$("textarea#tArea"+id).val();
-                    events.time=$("label[for='tArea"+id+"']").text();
-                    events.date=moment().format('dddd,MMMM Do');
+                  events.eventDesc=$("textarea#tArea"+id).val();
+                  events.time=$("label[for='tArea"+id+"']").text();
+                  events.date=moment().format('dddd,MMMM Do');
                     
-                    if (isPresent()>0){ // there are no matching events in the storage
-                      if(events.eventDesc!==""){ //if you are not trying to enter an empty event
-                          eventList.push(events); //push the event to the list since it's unique
-                      }    
-                      else{
-                        return;
-                      }
-                    }  
-                    
-                    if (eventList.length!=0){ //dump the eventList array to storage which holds our new event as well as the old ones
-                       localStorage.setItem("schedule",JSON.stringify(eventList));
+                  if (isPresent()>0){ // there are no matching events in the storage
+                    if(events.eventDesc!==""){ //if you are not trying to enter an empty event
+                        eventList.push(events); //push the event to the list since it's unique
+                    }    
+                    else{
+                      return;
                     }
-                    else{ //if there are no events in the storage since I deleted them, store null
+                  }  
+                    
+                  if (eventList.length!=0){ //dump the eventList array to storage which holds our new event as well as the old ones
+                     localStorage.setItem("schedule",JSON.stringify(eventList));
+                  }
+                  else{ //if there are no events in the storage since I deleted them, store null
                       localStorage.setItem("schedule",null);
-                    }   
+                  }   
   
-          }
-             
-            
-       // $(window).on('load',init); //when the window is loaded "init" function is fired up
-         
-       // $(".btn").on('click',storeLocal); //when a button is clicked "storeLocal" function is fired up 
-             
-
-    // $(document).ready(function(){
-       //Update the current date on the header
-
-      // $("#currentDay").text(moment().format('dddd,MMMM Do'));         
-
+          } 
+         /***************************************************************************************************************************/   
            
-        $(window).on('load',init); //when the window is loaded "init" function is fired up   
-        $(".btn").on('click',storeLocal); //when a button is clicked "storeLocal" function is fired up  
-    // });        
-         
+         $(window).on('load',init); //when the window is loaded "init" function is fired up   
+         $(".btn").on('click',storeLocal); //when a button is clicked "storeLocal" function is fired up      
           
     </script>
   </body>
