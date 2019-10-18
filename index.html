@@ -262,7 +262,8 @@
              
             
         $(window).on('load',init); //when the window is loaded "init" function is fired up
-        $(window).on('unload',init);
+        $(window).on('onbeforeunload',init);
+       
         $(".btn").on('click',storeLocal); //when a button is clicked "storeLocal" function is fired up 
              
       
