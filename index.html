@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
+      <!-- Timeblocks go here -->
+       <div class="input-group row timeblock">
+           <div class="input-group-prepend">
+              <label for="tArea0" class="pt-3 pr-1 hour">09 am</label>
+           </div>
+            <textarea class="form-control text-area" id="tArea0"  cols="50"></textarea>
+           <div class="input-group-append"> 
+              <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn" id="btn0"><span class="fas fa-archive"></span></button>
+          </div>
+      </div>  
+
+      <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea1" class="pt-3 pr-1 hour">10 am</label>
+        </div>
+         <textarea class="form-control text-area" id="tArea1"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn"id="btn1"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea2" class="pt-3 pr-1 hour">11 am</label>
+        </div>
+         <textarea class="form-control text-area" id="tArea2"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn " id="btn2"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea3" class="pt-3 pr-1 hour">12 pm</label>
+        </div>
+         <textarea class="form-control text-area" id="tArea3"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn" id="btn3"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea4" class="pt-3 pr-1 hour">01 pm</label>
+        </div>
+         <textarea class="form-control text-area" id="tArea4"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn " id="btn4"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea5" class="pt-3 pr-1 hour">02 pm</label>
+        </div>
+         <textarea class="form-control text-area" id="tArea5"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn " id="btn5"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea6" class="pt-3 pr-1 hour ">03 pm</label>
+        </div>
+         <textarea class="form-control text-area " id="tArea6"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn" id="btn6"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea7" class="pt-3 pr-1 hour">04 pm</label>
+        </div>
+         <textarea class="form-control text-area " id="tArea7"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn" id="btn7"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+     <div class="input-group row timeblock">
+        <div class="input-group-prepend">
+           <label for="tArea8" class="pt-3 pr-1 hour">05 pm</label>
+        </div>
+         <textarea class="form-control text-area" id="tArea8"  cols="50"></textarea>
+        <div class="input-group-append"> 
+           <button type="submit" class="btn btn-primary btn-lg ml-0 pt-3 pb-3 saveBtn" id="btn8"><span class="fas fa-archive"></span></button>
+       </div>
+     </div>  
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript">
+      
+     
+     $(document).ready(function(){
+       //Update the current date on the header
+       $("#currentDay").text(moment().format('dddd,MMMM Do'));   
+
+
+      eventList=[]; //holds the eventlist that's read from the storage or will be dumped to storage
+
+      /// This function takes an event object and compares the dates and times from DOM, if match is found it updates the related text area
+       function find(elist){
+         $.each($(".hour"),function(key,h){ //go through each time element in DOM
+              var value=$(h).text(); //get the time from DOM
+              if(elist.date===moment().format('dddd,MMMM Do')){//check if its date matches to the event's date
+                
+                 if(value==elist.time){ //check if it's time matches the event's time
+                   $("#tArea"+key).text(elist.eventDesc);//update the text area
+                   return;
+                 }
+              }
+         });     
+       }
+    /*****************************************************************************/
+       function init(){
+         eventList=JSON.parse(localStorage.getItem("schedule"));//get schedule object from the local storage and parse it
+         //if there are events in local storage, go through each event and update the text areas with DOM manipulation
+         if (eventList!=null){
+              for(var i=0;i<eventList.length;i++){
+                    find(eventList[i]); //show the events on the page
+              }
+         }
+         update(); 
+       }
+    /******************************************************************************/
+
+       //updates the page, makes it color coded. Grey-->past, Red-->present and Green-->future
+
+       function update(){
+          var hour= moment().format("hh a"); //get the hour of current time
+          var minute=moment().minutes();
+          console.log(hour+","+minute);
+          $.each($(".hour"),function(key,h){
+              var value=$(h).text();
+              if(moment(value,"hh a").isSame(moment(hour,"hh a"))){ //(ex. 11 am) If current hour matches
+
+                $("#tArea"+key).css("background-color","red"); //make the text area red
+                $("#tArea"+key).attr("disabled",false);//you can enter new events to current hour
+                $("#btn"+key).attr("disabled",false);//you can store new events at current hour
+              }
+              else if(moment(hour,"hh a").isAfter(moment(value,"hh a"))){//(ex.11 am) If time is passed the current our, it'll be past
+                $("#tArea"+key).addClass("past"); // the text area will be gray
+                $("#tArea"+key).attr("disabled",true); //text area will be disabled, you can't enter a new event to the past time
+                $("#btn"+key).attr("disabled",true); //store button will be disabled since you can't store any new events at past time
+              }
+              else if(moment(hour,"hh a").isBefore(moment(value,"hh a"))){ //(e.g. 11 am) If time is after the current time which means it has not happened yet
+                $("#tArea"+key).addClass("future"); //the text area will be green
+                $("#tArea"+key).attr("disabled",false);//you can enter new events
+                $("#btn"+key).attr("disabled",false);//you can store new events
+              }   
+          });
+       }
+       /**************************************************************************/
+       //This function stores the events in the local storage, fired up when button is clicked
+        function storeLocal(event){
+
+                  event.preventDefault(); //client side application, nothing will be submitted to server
+
+                  var events={ //events object
+                          time :"",  
+                          date:"",
+                          eventDesc:"",
+                        };  
+                  //inner function, if an event will be updated on the same date and time, this function is called
+                  function isPresent(){
+                          eventList=JSON.parse(localStorage.getItem("schedule")); //get the events object array and parse it
+                        if (eventList==null){ //if there are no previous event
+                         if(events.eventDesc!==""){  //you did not enter an empty event
+                            eventList=[];
+                            eventList.push(events); //push the events object to the array
+                         }  
+                         
+                        }
+                        else{
+                            // if there are previous events in the storage
+                            for(var i=0;i<eventList.length;i++){
+                               if(eventList[i].date===events.date){//compare date
+                                    if(eventList[i].time==events.time){ //compare time
+                                        if(events.eventDesc==""){ //if user deleted the event
+                                              eventList.splice(i,1); //delete it from the array, so it'll be deleted from storage
+                                        }
+                                        else{
+                                           eventList[i].eventDesc=events.eventDesc;//otherwise update the event eventually in  the storage
+                                           
+                                        }   
+                                       return 0;
+                                    }
+                               }
+                             }
+                             return 1;//this will indicate events in the storage belong to another date and or time
+                        }     
+                  }
+
+                  var el=$(this).attr("id");//get the buttons id, if it's 0-->matches to the time 9 am, if it's  1-->matches to the time 10 am etc.
+            
+                  var index=el.indexOf("n"); //Following couple of lines extract the index from the button id.
+                  var id="";
+                  for (var i=(index+1);i<el.length;i++){
+                        id+=el.charAt(i);
+                  }
+                  id=parseInt(id);
+                    //populate the events object  with the fields corresponding to the button pressed
+                    events.eventDesc=$("textarea#tArea"+id).val();
+                    events.time=$("label[for='tArea"+id+"']").text();
+                    events.date=moment().format('dddd,MMMM Do');
+                    
+                    if (isPresent()>0){ // there are no matching events in the storage
+                      if(events.eventDesc!==""){ //if you are not trying to enter an empty event
+                          eventList.push(events); //push the event to the list since it's unique
+                      }    
+                      else{
+                        return;
+                      }
+                    }  
+                    
+                    if (eventList.length!=0){ //dump the eventList array to storage which holds our new event as well as the old ones
+                       localStorage.setItem("schedule",JSON.stringify(eventList));
+                    }
+                    else{ //if there are no events in the storage since I deleted them, store null
+                      localStorage.setItem("schedule",null);
+                    }   
+  
+                  }
+             
+            
+        $(window).on('load',init); //when the window is loaded "init" function is fired up
+        $(".btn").on('click',storeLocal); //when a button is clicked "storeLocal" function is fired up 
+             
+      
+      });           
+         
+          
+    </script>
+  </body>
+</html>
