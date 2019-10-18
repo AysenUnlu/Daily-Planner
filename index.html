@@ -151,6 +151,7 @@
        }
     /*****************************************************************************/
        function init(){
+         console.log("in init");
          eventList=JSON.parse(localStorage.getItem("schedule"));//get schedule object from the local storage and parse it
          //if there are events in local storage, go through each event and update the text areas with DOM manipulation
          console.log(eventList);
@@ -166,14 +167,12 @@
        //updates the page, makes it color coded. Grey-->past, Red-->present and Green-->future
 
        function update(){
+         console.log("in update");
           var hour= moment().format("hh a"); //get the hour of current time
           var minute=moment().minutes();
           console.log(hour+","+minute);
           $.each($(".hour"),function(key,h){
               var value=$(h).text();
-              console.log(moment(value,"hh a").isSame(moment(hour,"hh a")));
-              console.log(moment(hour,"hh a").isAfter(moment(value,"hh a")));
-              console.log(moment(hour,"hh a").isBefore(moment(value,"hh a")));
              
 
               if(moment(value,"hh a").isSame(moment(hour,"hh a"))){ //(ex. 11 am) If current hour matches
@@ -197,7 +196,7 @@
        /**************************************************************************/
        //This function stores the events in the local storage, fired up when button is clicked
         function storeLocal(event){
-
+                  console.log("in storeLocal");
                   event.preventDefault(); //client side application, nothing will be submitted to server
 
                   var events={ //events object
@@ -207,6 +206,7 @@
                         };  
                   //inner function, if an event will be updated on the same date and time, this function is called
                   function isPresent(){
+                          console.log("in ispresent");
                           eventList=JSON.parse(localStorage.getItem("schedule")); //get the events object array and parse it
                         if (eventList==null){ //if there are no previous event
                          if(events.eventDesc!==""){  //you did not enter an empty event
