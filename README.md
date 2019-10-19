@@ -7,9 +7,7 @@ This is a simple calendar application that allows the user to save events for ea
 
 ## Installation: ##
 
-    You can check the running project:
-    
-   ![Running Project](https://aysenunlu.github.io/Daily-Planner/)
+    You can check the running project: https://aysenunlu.github.io/Daily-Planner/
 
 ## Usage: ##
 
@@ -20,7 +18,7 @@ This is a simple calendar application that allows the user to save events for ea
      * A field to hold user input
      * A save button
 
-    Clicking on the save button stores the time and user input in localStorage. Additionally, each hour is color coded to reflect whether the time slot is in the past (gray), the present (red), or the future (green). This changes depending on the time of the day. The past time events won't be updated or deleted since the corresponding text fields and buttons will be disabled.
+  - Clicking on the save button stores the time and user input in localStorage. Additionally, each hour is color coded to reflect whether the time slot is in the past (gray), the present (red), or the future (green). This changes depending on the time of the day. The past time events won't be updated or deleted since the corresponding text fields and buttons will be disabled.
 
      ![Welcome Page](images/welcome1.png)
      
