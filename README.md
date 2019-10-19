@@ -4,15 +4,6 @@
 
 This is a simple calendar application that allows the user to save events for each hour of the day. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
-The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot represents one hour and contain the following:
-
-* The time
-* A field to hold user input
-* A save button
-
-Clicking on the save button stores the time and user input in localStorage.
-
-Near the top of the calendar, the application displays the current day. Additionally, each hour is color coded to reflect whether the time slot is in the past, the present, or the future. This changes depending on the time of day.
 
 ## Installation: ##
 
@@ -22,58 +13,67 @@ Near the top of the calendar, the application displays the current day. Addition
 
 ## Usage: ##
 
-   - When the user runs the application, he lands on a page and is presented with a call-to-action to "Start Quiz." Also he has the navigation option to "View Highscores". The "Time" value is set to 0, since he has not started the quiz yet
+   - When the user runs the application, he is presented with a daily calendar where the current date is shown on top.
+     The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot represents one hour and contains the following: 
 
-     ![Start Quiz](images/welcomePage.png)
+     * The time
+     * A field to hold user input
+     * A save button
+
+    Clicking on the save button stores the time and user input in localStorage. Additionally, each hour is color coded to reflect whether the time slot is in the past (gray), the present (red), or the future (green). This changes depending on the time of the day. The past time events won't be updated or deleted since the corresponding text fields and buttons will be disabled.
+
+     ![Welcome Page](images/welcome1.png)
      
      ---------------------------------------------------------------------------------------------------
 
-   - Clicking the "Start Quiz" button presents the user with a series of questions. The timer is initialized with a value and immediately begins countdown. User clicks the answer and at the buttom of the page, he's prompted if his answer was correct or not. Since the validation message is shown for only couple of seconds, the screenshot has not been included.
+   - Here, we are in the time-block 11:00-12:00. If we enter "Meeting1" at 11 am time-block and "Meeting2" at 12 pm time-block and press the store buttons for both. The local storage will be as shown below. There maybe some entries from previous dates. Even if the page is refreshed, the changes persist.
 
-     ![Questions](images/question.png)
+     ![Meeting Entered](images/Meeting_Enter.png)
 
      --------------------------------------------------------------
 
-   - The player's score is calculated by the time remaining. Answering quickly and correctly results in a higher score. Answering incorrectly results in a time penalty (15 seconds are subtracted from time remaining). When the time runs out and/or all questions are answered, the user is presented with their final scores and asked to enter their initials. Their final scores and initials are stored in local storage. If the user took the quiz before, his previous score will be overwritten with his last score. 
+   - If we update "Meeting1" with "Meeting with Killers" at 11 am time block and add "Meeting3" at 01 pm time-block, the page and local storage will be as shown below: 
 
-     ![Score Page](images/scorePage1.png)
+     ![Update Meeting1](images/UpdateMeeting1.png)
 
      -----------------------------------------------------------------------------------------------------
 
-   - When the user hits the submit button, he sees the list of users with highest scores. If his score is bigger or equal to his opponents, then he'll be able to see his score in the list. The user has the option to go back to "Start Quiz" page where he can take the quiz again. He also has the option to delete the highest score. When the highest score is deleted,the user with the score is deleted from the storage. If there are more people who took the quiz, the second highest score is displayed;if not empty list will be shown
+   - If we delete "Meeting2" and press the submit button and refresh, the page and the local storage will be as shown below:
 
-     ![Highest Score Page](images/HighScores1.png)
+     ![Delete Meeting2](images/DeleteMeeting2.png)
 
-- Let's assume another player with initials "FU" took the test, the screenshots are shown below:
+- If we enter few more events at later times, the result page and the local storage will be as shown below
     
-     ![Score Page2](images/scorePage2.png)
+     ![Meetings Enter](images/EventsLaterDay.png)
 
-     ![Highest Score Page2](images/HighScores2.png)
+- If we refresh again, page will look like below:
 
-- Let's also assume, you took the quiz again and scored lower as seen on the screenshots below. You wanted to delete the highest score, you pressed the delete button and second highest will be your score. It's not 138 because you took the test again and scored lower.
+     ![Refresh Part1](images/RefreshPart1.png)
 
-     ![Score Page3](images/scorePage3.png)
+     ![Refresh Part2](images/RefreshPart2.png)
 
-     ![Highest Score Page3](images/HighScores3.png)
-
-     ![Highest Score Page4](images/highScores4.png)
-
-- If you hit the delete button again, since there are no other players, you'll be presented with an empty list
-
-     ![Highest Score Page5](images/highScores5.png)
+     ![Refresh Part3](images/RefreshPart3.png)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
 ## How: ##
 
-* When the button to start the quiz is clicked, the event listener causes the function "quizShow" to run. The purpose of this function is to hide the welcome page ,start the timer and show the questions. When the timer is set, it starts to count down immidiately which is shown on the right top corner of the page. If the timer runs out, we stop the timer. Clear the screen and at final step, dynamically create the page where you input your initials. There may be occasions when time left is negative, especially if you run out of time and answered question wrong;in that case, the timer i set to 0.
+* When the page is loaded, "init" function is fired up. First, current date is shown in the header. Afterwards, the object list will be taken from the local storage since the user might have already entered some events on the current day. If there are previously entered events, for each event we will check the DOM and show the events on the corresponding text fields if current date and time matches the DOM objects. This way events from the storage will be shown on the page. For each time objects that belongs to the "hour class", we'll compare it to the current time. This is done by using "moment.js" library for queries and current time. If the event happened in the past, the color of the text field will be changed to gray; if it is current hour, it'll be changed to red and if it's in the future, the text field color will be green. Those are accomplished by manipulating the css dynamically.
 
-* If the user finishes the quiz before the time runs out, final step is executed and he'll be asked to enter his initials on the dynamically created page. Otherwise to show the question, paragraph element is created and the question is grabbed from the question array and Options are shown too. For each option a list elements are created inside buttons and populated with the corresponding options for the question. And id attribute is created for the button and set to the index of the question, so when it's clicked we'll know which question object to go to. When the answer is clicked, it'll fire up "validate" function. Here we'll figure out which button is clicked by its id and get the corresponding answer from the question object array and compare it to the user's answer. If they're equal, then a response will be created and added dynamically to the end of options. If the user's answer is wrong, then 15 seconds will be subtracted from the time left. Then the page will be cleared, but not until we wait 1 second for user to see the answer. Another question will be shown.
+* When user enters an event and hits the "store" button, "storeLocal" function will be fired up. First, we'll get the id of the button and extract the index from it. If  it's 0-->matches to the time 9 am, if it's  1-->matches to the time 10 am etc. Then we'll create an "events" object with the fields; time, date and event description. We will check if event is already stored in the local storage (This is accomplished by comparing the time fields). If it is stored, the event description will be updated. If user entered empty string and event exists in the storage, event will be removed from the storage. If event does not exist in the storage, new event entry will be added to the storage. If the event does not exist in the storage and user enters an empty event, it'll have no effect whatsoever. If we delete all the events, null will be stored in the local storage.
 
-* When the time runs out or the player finishes all the questions, he;s presented with a dynamically created page and asked to enter his initials. When he hits submit button, an entry object is formed with fields name and score. First, then we get the players which are addressed as contenders from the local storage. We search if the user exits. If that's the case his entry is replaced, other wise pushed to the array of objects and stored in the local storage.
+* Dates and times from another day in the local storage won't effect the program.
 
-* "scores.html" is shown on top of the page which lists high scores with go back and delete buttons. We get all the contenders from the storage. We find the players with maximum score or scores and show it on the text area. When clear button is clicked, the highest score or scores are deleted from the local storage and text area is populated with the next highest score or scores.
+## Credits: ## 
 
+I'm greatful for our instructor Omar Patel and TA's Tyler Bray, Matthew Calimbas and PeterPark for their help on the issues encountered in the process of developing this application.
+
+The web sites that I found useful while implementing the application are listed below:
+
+  * https://getbootstrap.com/docs/4.3/getting-started/introduction/
+  * https://momentjs.com/docs/
+  * https://www.freecodecamp.org/learn/front-end-libraries/jquery/
+  
 ## Licence: ##
 
 Anybody is welcomed to copy code snippets and test it out.
