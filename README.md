@@ -7,9 +7,13 @@ This is a simple calendar application that allows the user to save events for ea
 
 ## Installation: ##
 
-    You can check the running project: https://aysenunlu.github.io/Daily-Planner/
+    You can check the running project: 
+    
+  [https://aysenunlu.github.io/Daily-Planner/](https://aysenunlu.github.io/Daily-Planner/)
 
 ## Usage: ##
+
+   ![Daily Planner](images/DailyPlanner.gif])
 
    - When the user runs the application, he is presented with a daily calendar where the current date is shown on top.
      The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot represents one hour and contains the following: 
@@ -20,39 +24,11 @@ This is a simple calendar application that allows the user to save events for ea
 
   - Clicking on the save button stores the time and user input in localStorage. Additionally, each hour is color coded to reflect whether the time slot is in the past (gray), the present (red), or the future (green). This changes depending on the time of the day. The past time events won't be updated or deleted since the corresponding text fields and buttons will be disabled.
 
-     ![Welcome Page](images/welcome1.png)
-     
-     ---------------------------------------------------------------------------------------------------
+   - Looking at the gif above, we are in the time-block 3 pm-4 pm. If we enter "Meeting1" at 3 pm time-block, "Meeting2" at 4 pm time-block and "Meeting3" at 5 pm time-block and press the store buttons for all. The local storage will be as shown. There maybe some entries from previous dates. Even if the page is refreshed, the changes persist.
 
-   - Here, we are in the time-block 11 am-12 pm. If we enter "Meeting1" at 11 am time-block and "Meeting2" at 12 pm time-block and press the store buttons for both. The local storage will be as shown below. There maybe some entries from previous dates. Even if the page is refreshed, the changes persist.
+   - If we update "Meeting1" with "Meeting with Killers" at 3 pm time block, we'll see the corresponding changes in the local storage.
 
-     ![Meeting Entered](images/Meeting_Enter.png)
-
-     --------------------------------------------------------------
-
-   - If we update "Meeting1" with "Meeting with Killers" at 11 am time block and add "Meeting3" at 01 pm time-block, the page and local storage will be as shown below: 
-
-     ![Update Meeting1](images/UpdateMeeting1.png)
-
-     -----------------------------------------------------------------------------------------------------
-
-   - If we delete "Meeting2" and press the submit button and refresh, the page and the local storage will be as shown below:
-
-     ![Delete Meeting2](images/DeleteMeeting2.png)
-
-- If we enter few more events at later times, the result page and the local storage will be as shown below
-    
-     ![Meetings Enter](images/EventsLaterDay.png)
-
-- If we refresh again, page will look like below:
-
-     ![Refresh Part1](images/RefreshPart1.png)
-
-     ![Refresh Part2](images/RefreshPart2.png)
-
-     ![Refresh Part3](images/RefreshPart3.png)
-
----------------------------------------------------------------------------------------------------------------------------
+   - If we delete "Meeting2" and press the submit button and refresh, the page and the local storage will be updated.
 
 ## How: ##
 
