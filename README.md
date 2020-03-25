@@ -13,7 +13,7 @@ This is a simple calendar application that allows the user to save events for ea
 
 ## Usage: ##
 
-  ![Daily Planner](images/DailyPlanner.gif)
+  ![Daily Planner](images/MyDailyPlanner.gif)
 
    - When the user runs the application, he is presented with a daily calendar where the current date is shown on top.
      The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot represents one hour and contains the following: 
@@ -24,9 +24,9 @@ This is a simple calendar application that allows the user to save events for ea
 
   - Clicking on the save button stores the time and user input in localStorage. Additionally, each hour is color coded to reflect whether the time slot is in the past (gray), the present (red), or the future (green). This changes depending on the time of the day. The past time events won't be updated or deleted since the corresponding text fields and buttons will be disabled.
 
-   - Looking at the gif above, we are in the time-block 3 pm-4 pm. If we enter "Meeting1" at 3 pm time-block, "Meeting2" at 4 pm time-block and "Meeting3" at 5 pm time-block and press the store buttons for all. The local storage will be as shown. There maybe some entries from previous dates. Even if the page is refreshed, the changes persist.
+   - Looking at the gif above, we are in the time-block 4 pm-5 pm. If we enter "Meeting2" at 4 pm time-block, "Meeting3" at 5 pm time-block and press the store buttons for both, the local storage will be as shown. There maybe some entries from previous dates. Even if the page is refreshed, the changes persist.
 
-   - If we update "Meeting1" with "Meeting with Killers" at 3 pm time block, we'll see the corresponding changes in the local storage.
+   - If we update "Meeting3" with "Meeting with Placebo" at 5 pm time block, we'll see the corresponding changes in the local storage.
 
    - If we delete "Meeting2" and press the submit button and refresh, the page and the local storage will be updated.
 
