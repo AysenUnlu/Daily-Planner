@@ -13,7 +13,7 @@ This is a simple calendar application that allows the user to save events for ea
 
 ## Usage: ##
 
-  ![Daily Planner](images/DailyPlanner.gif])
+  ![Daily Planner](images/DailyPlanner.gif)
 
    - When the user runs the application, he is presented with a daily calendar where the current date is shown on top.
      The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot represents one hour and contains the following: 
